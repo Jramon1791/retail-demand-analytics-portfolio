@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "retail-demand-analytics-portfolio"
+version = "0.1.0"
+description = "Hiring-focused analytics portfolio project with reproducible KPI pipeline."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+  "numpy>=2.1.0",
+  "pandas>=2.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+  "ruff>=0.6.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "--basetemp=./tmp/pytest"
+cache_dir = "tmp/.pytest_cache"
